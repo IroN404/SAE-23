@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'css/header.css' %}">
+    <link rel="stylesheet" href="{%static 'css/content.css' %}">
+    <link rel="icon" href="{%static 'favicon/favicon.ico' %}">
+    <meta charset="UTF-8">
+    <title>{% block title %}Page d'Acceuil{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <a class="logo" href="/"><img src="{%static 'image/logo.svg' %}" alt="logo"></a>
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="\ajout">Ajouter Produits</a></li>
+                    <li><a href="ajout_categorie/">Ajouter Catégorie</a></li>
+                    <li><a href="#">Commandes</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="#">Client</a>
+            <p class="menu cta">Menu</p>
+    </header>
+        <div id="mobile_menu" class="overlay">
+            <a class="close">&times;</a>
+            <div class="overlay_content">
+                <a href="#">Produits</a>
+                <a href="#">Catégorie</a>
+                <a href="#">Commandes</a>
+                <a href="#">Client</a>
+            </div>
+        </div>
+        <script type="text/javascript" src="{%static 'js/mobile_view.js' %}"></script>
+    {% block content %}
+        <div class="frontpage">
+            <img src="{%static 'image/front.png' %}" alt="front-page image">
+        </div>
+    {% endblock %}
+</body>
+</html>
