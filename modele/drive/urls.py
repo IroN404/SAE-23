@@ -1,9 +1,16 @@
 from django.urls import path
-from . import views_produit, views_categorie
+from . import views, views_produit, views_categorie
 
 urlpatterns = [
+    path('', views.home, name='home'),
     #URL produits
-    path('', views_produit.home, name='home'),
+    path('ajout_produit/<int:id>/', views_produit.ajout, name=('ajout_produit')),
+    path('traitement_produit/<int:id>/', views_produit.traitement, name=('traitement_produit')),
+    path('infos_produit/', views_produit.infos, name=('infos_produits')),
+    path('affiche_produit/<int:id>/', views_produit.affiche, name=('affiche_produit')),
+    path('update_produit/<int:id>/', views_produit.update, name=('update_produit')),
+    path('updatetraitement_produit/<int:id>/', views_produit.updatetraitement, name=('updatetraitement_produit')),
+    path('delete_produit/<int:id>/', views_produit.delete, name=('delete_produit')),
     # URL catégorie
     path('ajout_categorie/', views_categorie.ajout, name=('ajout_categorie')),
     path('traitement_categorie/', views_categorie.traitement, name=('traitement_categorie')),
