@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, widgets
 from django.utils.translation import gettext_lazy as _
 from . import models
 
@@ -7,10 +7,10 @@ from . import models
 class categorieform(ModelForm):
     class Meta:
         model = models.categorie
-        fields = ('nom','descriptif')
+        fields = "__all__"
         labels = {
             'nom' : _('Nom'),
-            'descriptif' : _('Descriptif'),
+            'details' : _('Descriptif'),
 
         }
 

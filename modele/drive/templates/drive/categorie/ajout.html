@@ -1,0 +1,14 @@
+{% extends "drive/index.html" %}
+{% block title %}
+    Ajout d'une catégorie
+{% endblock %}
+{% block content %}
+<div class="content">
+    <h1>Saisie d'une nouvelle catégorie</h1>
+    <form method="post" action="/traitement_categorie/">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Envoyer les données"/>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "drive/index.html" %}
+{% block title %}
+        {{categorie.nom}}
+{% endblock %}
+{% block content %}
+<div class="content">
+    <h1>{{categorie.nom}}</h1>
+    <p>{{categorie.descriptif}}</p>
+    <h2>Liste de {{categorie.nom}} :</h2>
+    <a href="/ajout/{{categorie.id}}/">ajouter un Produit</a>
+    <ol>
+        {% for l in liste %}
+        <li> {{l.nom}} <a href="/affiche/{{l.id}}">Afficher</a> | <a href="/update/{{l.id}}">Mise à jour</a> | <a href="/delete/{{l.id}}">Supprimer</a> </li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}
