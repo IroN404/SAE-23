@@ -15,7 +15,7 @@ def traitement(request):
     form = categorieform(request.POST)
     if form.is_valid():
         categorie = form.save()
-        return HttpResponseRedirect("/infoscategorie")
+        return HttpResponseRedirect("/infos_categorie")
     else :
         return render(request,"drive/categorie/ajout.html",{"form": form})
 
@@ -39,7 +39,7 @@ def updatetraitement(request, id):
         categorie = form.save(commit=False)
         categorie.id = id
         categorie.save()
-        return HttpResponseRedirect("/infoscategorie")
+        return HttpResponseRedirect("/infos_categorie")
     else:
         return render(request, "drive/categorie/update.html", {"form": form, "id":id})
 
@@ -48,4 +48,4 @@ def delete(request, id):
     produit = models.produit.objects.filter(categorie_id = id)
     categorie.delete()
     produit.delete()
-    return HttpResponseRedirect("/infoscategorie/")
+    return HttpResponseRedirect("/infos_categorie/")
