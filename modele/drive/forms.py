@@ -26,3 +26,16 @@ class produitform(ModelForm):
             'marque' : _('Marque'),
             'auteur': _('Auteur'),
         }
+
+class produitonlyform(ModelForm):
+    class Meta:
+        model = models.produit
+        fields = ('nom','date_peremption', 'photo','marque','auteur','categorie')
+        labels = {
+            'nom': _('Nom'),
+            'date_peremption' : _('Date de péremption'),
+            'photo' : _('Photo') ,
+            'marque' : _('Marque'),
+            'auteur': _('Auteur'),
+            'categorie': _('Catégorie'),
+        }

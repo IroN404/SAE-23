@@ -7,7 +7,7 @@
     <h1>Saisie d'une nouvelle catégorie</h1>
     <form method="post" action="/traitement_categorie/">
         {% csrf_token %}
-        {{form.as_p}}
+        {{form.as_ul}}
         <input type="submit" value="Envoyer les données"/>
     </form>
 </div>

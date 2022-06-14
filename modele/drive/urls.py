@@ -5,7 +5,9 @@ urlpatterns = [
     path('', views.home, name='home'),
     #URL produits
     path('ajout_produit/<int:id>/', views_produit.ajout, name=('ajout_produit')),
+    path('ajout_produit_only/', views_produit.ajout_only, name=('ajout_produit_only')),
     path('traitement_produit/<int:id>/', views_produit.traitement, name=('traitement_produit')),
+    path('traitement_produit_only/', views_produit.traitement_only, name=('traitement_produit_only')),
     path('infos_produit/', views_produit.infos, name=('infos_produits')),
     path('affiche_produit/<int:id>/', views_produit.affiche, name=('affiche_produit')),
     path('update_produit/<int:id>/', views_produit.update, name=('update_produit')),

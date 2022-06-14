@@ -10,11 +10,11 @@ class produit(models.Model):
     categorie = models.ForeignKey("categorie", on_delete=models.CASCADE, default=None)
 
     def __str__(self):
-        chaine = f"{self.nom} de {self.marques}, périme le {self.date_peremption}. Catégorie : {self.categories}"
+        chaine = f"{self.nom} de {self.marque}, périme le {self.date_peremption}. Catégorie : {self.categorie}"
         return chaine
 
     def dico(self):
-        return {"nom": self.nom, "date_peremption": self.date_peremption, "photos": self.photos, "marques": self.marques, "auteur": self.auteur, "categorie": self.categorie}
+        return {"nom": self.nom, "date_peremption": self.date_peremption, "photo": self.photo, "marque": self.marque, "auteur": self.auteur, "categorie": self.categorie}
 
 #CATEGORIE----------------------------------------------------------------
 class categorie(models.Model):

@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
-from .forms import produitform, categorieform
+from .forms import produitform, produitonlyform
 from . import models
 
 # Create your views here.
@@ -11,15 +11,29 @@ def ajout(request, id):
     form = produitform()
     return render(request, "drive/produit/ajout.html", {"form": form, "id": id})
 
+def ajout_only(request):
+    form = produitonlyform()
+    return render(request, "drive/produit/ajout_only.html", {"form": form})
+
 def traitement(request, id):
-    produit = models.produit.objects.get(pk=id)
-    pform = produitform(request.POST)
-    if pform.is_valid():
-        produit = pform.save(commit=False)
+    categorie = models.categorie.objects.get(pk=id)
+    form = produitform(request.POST)
+    if form.is_valid():
+        produit = form.save(commit=False)
+        produit.categorie = categorie
+        produit.categorie_id = id
         produit.save()
-        return redirect('affiche', id=id)
+        return redirect('affiche_categorie', id=id)
     else:
-        return render(request, "drive/produit/ajout.html", {"form": pform})
+        return render(request, "drive/produit/ajout.html", {"form": form})
+
+def traitement_only(request):
+    form = produitonlyform(request.POST)
+    if form.is_valid():
+        produit = form.save()
+        return render(request, "drive/produit/affiche.html", {"produit" : produit})
+    else :
+        return render(request, "drive/produit/affiche.html", {"form" : form})
 
 def affiche(request, id):
     produit = models.produit.objects.get(pk=id)
@@ -41,12 +55,12 @@ def updatetraitement(request, id):
         categorie.id = id
         categorie.categorie_id = models.produit.objects.get(pk=id).categorie_id
         categorie.save()
-        return HttpResponseRedirect("drive/categorie/affichecategorie/" + str(models.produit.objects.get(pk=id).categorie_id) + "/")
+        return HttpResponseRedirect("/affiche_categorie/" + str(models.produit.objects.get(pk=id).categorie_id) + "/")
     else:
-        return render(request, "drive/categorie/update.html", {"form": pform, "id":id})
+        return render(request, "/drive/categorie/update.html", {"form": pform, "id":id})
 
 def delete(request, id):
     produit = models.produit.objects.get(pk=id)
     produit_id = str(models.produit.objects.get(pk=id).categorie_id)
     produit.delete()
-    return HttpResponseRedirect("drive/categorie/affichecategorie/" + produit_id + "/")
+    return HttpResponseRedirect("/affiche_categorie/" + produit_id + "/")

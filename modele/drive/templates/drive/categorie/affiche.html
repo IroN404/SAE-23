@@ -10,7 +10,7 @@
     <a href="/ajout_produit/{{categorie.id}}/">ajouter un Produit</a>
     <ol>
         {% for l in liste %}
-        <li> {{l.nom}} <a href="/affiche/{{l.id}}">Afficher</a> | <a href="/update/{{l.id}}">Mise à jour</a> | <a href="/delete/{{l.id}}">Supprimer</a> </li>
+        <li> {{l.nom}} <a href="/affiche_produit/{{l.id}}">Afficher</a> | <a href="/update_produit/{{l.id}}">Mise à jour</a> | <a href="/delete_produit/{{l.id}}">Supprimer</a> </li>
         {% endfor %}
     </ol>
 </div>
