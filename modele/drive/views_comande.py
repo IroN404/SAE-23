@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
-from .forms import commandeform, commandeonlyform, listecommandeform
+from .forms import commandeform, commandeonlyform
 from . import models
 
 # Create your views here.
@@ -10,10 +10,6 @@ def home(request):
 def ajout(request, id):
     form = commandeform()
     return render(request, "drive/commande/ajout.html", {"form": form, "id": id})
-
-def ajout_only_suite(request, id):
-    form = listecommandeform()
-    return render(request, "drive/listecommande/ajou_only_suite.html", {"form": form, "id": id})
 
 def ajout_only(request):
     form = commandeonlyform()
@@ -35,17 +31,9 @@ def traitement_only(request):
     form = commandeonlyform(request.POST)
     if form.is_valid():
         commande = form.save()
-        return render(request, "drive/listecommande/ajout.html", {"commande" : commande})
+        return render(request, "drive/commande/affiche.html", {"commande" : commande})
     else :
-        return render(request, "drive/listecommande/ajout.html", {"form" : form})
-
-def traitement_only_suite(request):
-    form = liste(request.POST)
-    if form.is_valid():
-        commande = form.save()
-        return render(request, "drive/listecommande/ajout.html", {"commande" : commande})
-    else :
-        return render(request, "drive/listecommande/ajout.html", {"form" : form})
+        return render(request, "drive/commande/affiche.html", {"form" : form})
 
 def affiche(request, id):
     commande = models.commande.objects.get(pk=id)
@@ -75,5 +63,5 @@ def delete(request, id):
     commande = models.commande.objects.get(pk=id)
     commande_id = str(models.commande.objects.get(pk=id).client_id)
     commande.delete()
-    return HttpResponseRedirect("/affiche_client/" + commande_id + "/")
+    return HttpResponseRedirect("/infos_commande/")
 

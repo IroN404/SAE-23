@@ -39,8 +39,6 @@ urlpatterns = [
     path('update_commande/<int:id>/', views_comande.update, name=('update_commande')),
     path('updatetraitement_commande/<int:id>/', views_comande.updatetraitement, name=('updatetraitement_commande')),
     path('delete_commande/<int:id>/', views_comande.delete, name=('delete_commande')),
-    path('ajout_commande_suite/<int:id>/', views_comande.ajout_only_suite, name=('ajout_commande_suite')),
-
     #URL listecommande
     path('ajout_listecommande/', views_listecommande.ajout, name=('ajout_listecommande')),
     path('traitement_listecommande/', views_listecommande.traitement, name=('traitement_listecommande')),
