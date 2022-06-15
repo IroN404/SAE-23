@@ -39,3 +39,37 @@ class produitonlyform(ModelForm):
             'auteur': _('Auteur'),
             'categorie': _('Catégorie'),
         }
+
+#CLIENT--------------------------------------------------------------
+class clientform(ModelForm):
+    class Meta:
+        model = models.client
+        fields = ('nom','prenom', 'date_inscription','adresse')
+        labels = {
+            'nom': _('Nom'),
+            'prenom' : _('Prenom'),
+            'date_inscription' : _('Date Inscription') ,
+            'adresse' : _('Adresse')
+        }
+
+#commande-------------------------------------------------------------
+class commandeform(ModelForm):
+    class Meta:
+        model = models.commande
+        fields = ('numcommande', 'date','client')
+        labels = {
+            'numcommande' : _('Numéro de la commande'),
+            'date' : _('Date de la commande'),
+
+        }
+
+class commandeonlyform(ModelForm):
+    class Meta:
+        model = models.commande
+        fields = ('numcommande', 'date','client')
+        labels = {
+            'numcommande' : _('Numéro de la commande'),
+            'date' : _('Date de la commande'),
+            'client': _('Nom du client'),
+
+        }

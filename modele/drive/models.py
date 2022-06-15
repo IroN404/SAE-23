@@ -26,3 +26,30 @@ class categorie(models.Model):
 
     def dico(self):
         return {"nom": self.nom, "details": self.details}
+
+#COMMANDE----------------------------------------------------------------
+class commande(models.Model):
+    numcommande = models.CharField(max_length=100)
+    date = models.DateField(blank=True, null=True)
+    client = models.ForeignKey("client", on_delete=models.CASCADE, default=None)
+
+
+    def __str__(self):
+        chaine = self.numcommande
+        return chaine
+
+    def dico(self):
+        return {"numcommande": self.numcommande, "date": self.date, "client": self.client}
+
+#CLIENT----------------------------------------------------------------
+class client(models.Model):
+    nom = models.CharField(max_length=20)
+    prenom = models.CharField(max_length=20)
+    date_inscription = models.DateField(blank=True, null=True)
+    adresse = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.nom
+
+    def dico(self):
+        return {"nom": self.nom, "prenom": self.prenom, "date_inscription" : self.date_inscription , "adresse" : self.adresse}

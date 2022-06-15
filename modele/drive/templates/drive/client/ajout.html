@@ -1,0 +1,14 @@
+{% extends "drive/index.html" %}
+{% block title %}
+    Ajout Client
+{% endblock %}
+{% block content %}
+<div class="content">
+    <h1>Saisie d'un nouveau client</h1>
+    <form method="POST" action="/traitement_client/">
+        {% csrf_token %}
+        {{form.as_ul}}
+        <input type="submit" value="Envoyer les données"/>
+    </form>
+</div>
+{% endblock %}

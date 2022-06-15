@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views, views_produit, views_categorie
+from . import views, views_produit, views_categorie, views_client, views_comande
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -22,5 +22,23 @@ urlpatterns = [
     path('updatetraitement_categorie/<int:id>/', views_categorie.updatetraitement, name=('updatetraitement_categorie')),
     path('delete_categorie/<int:id>/', views_categorie.delete, name=('delete_categorie')),
     #URL clients
+    path('ajout_client/', views_client.ajout, name=('ajout_client')),
+    path('traitement_client/', views_client.traitement, name=('traitement_client')),
+    path('infos_client/', views_client.infos, name=('infos_client')),
+    path('affiche_client/<int:id>/', views_client.affiche, name=('affiche_client')),
+    path('update_client/<int:id>/', views_client.update, name=('update_client')),
+    path('updatetraitement_client/<int:id>/', views_client.updatetraitement, name=('updatetraitement_client')),
+    path('delete_client/<int:id>/', views_client.delete, name=('delete_client')),
     #URL commandes
+    path('ajout_commande/<int:id>/', views_comande.ajout, name=('ajout_commande')),
+    path('ajout_commande_only/', views_comande.ajout_only, name=('ajout_commande_only')),
+    path('traitement_commande/<int:id>/', views_comande.traitement, name=('traitement_commande')),
+    path('traitement_commande_only/', views_comande.traitement_only, name=('traitement_commande_only')),
+    path('infos_commande/', views_comande.infos, name=('infos_commande')),
+    path('affiche_commande/<int:id>/', views_comande.affiche, name=('affiche_commande')),
+    path('update_commande/<int:id>/', views_comande.update, name=('update_commande')),
+    path('updatetraitement_commande/<int:id>/', views_comande.updatetraitement, name=('updatetraitement_commande')),
+    path('delete_commande/<int:id>/', views_comande.delete, name=('delete_commande')),
+
+    #URL listecommande
 ]

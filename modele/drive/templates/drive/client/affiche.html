@@ -1,0 +1,18 @@
+{% extends "drive/index.html" %}
+{% block title %}
+        {{client.nom}}
+{% endblock %}
+{% block content %}
+<div class="content">
+    <a href="/ajout_commande/{{client.id}}/">Faire une commande</a>
+    <h1>{{client.nom}}</h1>
+    <p>{{client.prenom}}</p>
+    <h2>date d'inscription : {{client.date_inscription}}</h2>
+
+    <ol>
+        {% for l in liste %}
+        <li><p> Commande n° : {{l}} <a href="/affiche_commande/{{l.id}}">Afficher</a> | <a href="/update_commande/{{l.id}}">Mise à jour</a> | <a href="/delete_commande/{{l.id}}">Supprimer</a> </li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}
