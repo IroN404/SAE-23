@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views, views_produit, views_categorie, views_client, views_comande
+from . import views, views_produit, views_categorie, views_client, views_comande, views_listecommande
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -39,6 +39,14 @@ urlpatterns = [
     path('update_commande/<int:id>/', views_comande.update, name=('update_commande')),
     path('updatetraitement_commande/<int:id>/', views_comande.updatetraitement, name=('updatetraitement_commande')),
     path('delete_commande/<int:id>/', views_comande.delete, name=('delete_commande')),
+    path('ajout_commande_suite/<int:id>/', views_comande.ajout_only_suite, name=('ajout_commande_suite')),
 
     #URL listecommande
+    path('ajout_listecommande/', views_listecommande.ajout, name=('ajout_listecommande')),
+    path('traitement_listecommande/', views_listecommande.traitement, name=('traitement_listecommande')),
+    path('infos_listecommande/', views_listecommande.infos, name=('infos_listecommande')),
+    path('affiche_listecommande/<int:id>/', views_listecommande.affiche, name=('affiche_listecommande')),
+    path('update_listecommande/<int:id>/', views_listecommande.update, name=('update_listecommande')),
+    path('updatetraitement_listecommande/<int:id>/', views_listecommande.updatetraitement, name=('updatetraitement_listecommande')),
+    path('delete_listecommande/<int:id>/', views_listecommande.delete, name=('delete_listecommande')),
 ]

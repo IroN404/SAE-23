@@ -29,8 +29,8 @@ def affiche(request, id):
     return render(request, "drive/client/affiche.html", {"client":client, "liste" : liste})
 
 def update(request, id):
-    categorie = models.client.objects.get(pk=id)
-    form = clientform(categorie.dico())
+    client = models.client.objects.get(pk=id)
+    form = clientform(client.dico())
     return render(request, "drive/client/update.html",{"form":form, "id":id})
 
 def updatetraitement(request, id):

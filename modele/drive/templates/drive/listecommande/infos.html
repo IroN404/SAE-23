@@ -1,0 +1,14 @@
+{% extends "drive/index.html" %}
+{% block title %}
+    Liste commande
+{% endblock %}
+{% block content %}
+<div class="content">
+        <h1>Liste</h1>
+        <ol>
+            {% for l in liste %}
+                <li>{{l}}  <a href="/affiche/{{l.id}}">afficher</a> | <a href="/update/{{l.id}}">update</a> | <a href="/delete/{{l.id}}">delete</a></li>
+            {% endfor %}
+        </ol>
+</div>
+{% endblock %}

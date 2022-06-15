@@ -56,7 +56,7 @@ class clientform(ModelForm):
 class commandeform(ModelForm):
     class Meta:
         model = models.commande
-        fields = ('numcommande', 'date','client')
+        fields = ('numcommande', 'date')
         labels = {
             'numcommande' : _('Numéro de la commande'),
             'date' : _('Date de la commande'),
@@ -71,5 +71,17 @@ class commandeonlyform(ModelForm):
             'numcommande' : _('Numéro de la commande'),
             'date' : _('Date de la commande'),
             'client': _('Nom du client'),
+
+        }
+
+#listecommande--------------------------------------------------------------
+class listecommandeform(ModelForm):
+    class Meta:
+        model = models.listecommande
+        fields = ('commande', 'quantite','produit')
+        labels = {
+            'commande' : _('Numéro de la commande :'),
+            'quantite' : _('Quantite du produit :'),
+            'produit': _('Produit :'),
 
         }

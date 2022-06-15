@@ -53,3 +53,15 @@ class client(models.Model):
 
     def dico(self):
         return {"nom": self.nom, "prenom": self.prenom, "date_inscription" : self.date_inscription , "adresse" : self.adresse}
+
+# CLIENT----------------------------------------------------------------
+class listecommande(models.Model):
+    commande = models.ManyToManyField(commande)
+    quantite = models.CharField(max_length=20)
+    produit = models.ManyToManyField(produit)
+
+    def __str__(self):
+        return self.commande
+
+    def dico(self):
+        return{"commandes": self.commandes, "quantite": self.quantite, "produit" : self.produit}
