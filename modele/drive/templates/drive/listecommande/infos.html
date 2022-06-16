@@ -4,10 +4,10 @@
 {% endblock %}
 {% block content %}
 <div class="content">
-        <h1>Liste</h1>
+        <h1>Commande de {{listecommande.commande}}</h1>
         <ol>
             {% for l in liste %}
-                <li>{{l}}  <a href="/affiche/{{l.id}}">afficher</a> | <a href="/update/{{l.id}}">update</a> | <a href="/delete/{{l.id}}">delete</a></li>
+                <li> <a href="/affiche/{{l.id}}">afficher</a> | <a href="/update/{{l.id}}">update</a> | <a href="/delete/{{l.id}}">delete</a></li>
             {% endfor %}
         </ol>
 </div>

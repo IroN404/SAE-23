@@ -63,4 +63,4 @@ class listecommande(models.Model):
         return self.commande
 
     def dico(self):
-        return{"commandes": self.commandes, "quantite": self.quantite, "produit" : self.produit}
+        return{"commande": self.commande, "quantite": self.quantite, "produit" : self.produit}
