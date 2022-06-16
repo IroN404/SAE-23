@@ -6,7 +6,7 @@ from . import models
 def ajout(request):
     if request.method == 'POST':
         form = listecommandeform(request)
-        return render(request,"drive/listecommande/ajout.html", {"form":form})
+        return render(request,"drive/listecommande/affiche.html", {"form":form})
     else:
         form = listecommandeform()
         return render(request, "drive/listecommande/ajout.html", {"form": form})
@@ -17,7 +17,7 @@ def traitement(request):
         #quantite = form.cleaned_data.get("quantite")
         #if quantite >
         listecommande = form.save(commit=False)
-        listecommande.save
+        listecommande.save()
         return HttpResponseRedirect("/infos_listecommande")
     else :
         return render(request,"drive/listecommande/ajout.html",{"form": form})
