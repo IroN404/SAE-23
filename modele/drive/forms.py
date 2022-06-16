@@ -80,7 +80,7 @@ class listecommandeform(ModelForm):
         model = models.listecommande
         fields = ('commande', 'quantite','produit')
         labels = {
-            'commande' : _('Numéro de la commande :'),
+            'commande' : _('Nom du client :'),
             'quantite' : _('Quantite du produit :'),
             'produit': _('Produit :'),
 

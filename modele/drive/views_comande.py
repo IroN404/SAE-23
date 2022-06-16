@@ -23,7 +23,7 @@ def traitement(request, id):
         commande.client = client
         commande.client_id = id
         commande.save()
-        return redirect('affiche_client', id=id)
+        return HttpResponseRedirect("/ajout_listecommande/")
     else:
         return render(request, "drive/commande/ajout.html", {"form": form})
 
