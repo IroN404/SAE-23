@@ -34,7 +34,7 @@ class commande(models.Model):
 
 
     def __str__(self):
-        chaine = self.numcommande
+        chaine = f"{self.numcommande} | {self.client}"
         return chaine
 
     def dico(self):
