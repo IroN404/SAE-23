@@ -14,7 +14,7 @@ def ajout(request):
 def traitement(request):
     form = listecommandeform(request.POST)
     if form.is_valid():
-        listecommande = form.save()
+        listecommande = form.save(commit=false)
         return HttpResponseRedirect("/infos_listecommande")
     else :
         return render(request,"drive/listecommande/ajout.html",{"form": form})
