@@ -18,19 +18,21 @@ class categorieform(ModelForm):
 class produitform(ModelForm):
     class Meta:
         model = models.produit
-        fields = ('nom','date_peremption', 'photo','marque','auteur')
+        fields = ('nom','date_peremption', 'photo','marque','auteur','prix','quantite')
         labels = {
             'nom': _('Nom'),
             'date_peremption' : _('Date de péremption'),
             'photo' : _('Photo') ,
             'marque' : _('Marque'),
             'auteur': _('Auteur'),
+            'prix': _('prix unitaire'),
+            'quantite': _('quantite'),
         }
 
 class produitonlyform(ModelForm):
     class Meta:
         model = models.produit
-        fields = ('nom','date_peremption', 'photo','marque','auteur','categorie')
+        fields = ('nom','date_peremption', 'photo','marque','auteur','categorie','prix','quantite')
         labels = {
             'nom': _('Nom'),
             'date_peremption' : _('Date de péremption'),
@@ -38,6 +40,8 @@ class produitonlyform(ModelForm):
             'marque' : _('Marque'),
             'auteur': _('Auteur'),
             'categorie': _('Catégorie'),
+            'prix': _('prix unitaire'),
+            'quantite': _('quantite'),
         }
 
 #CLIENT--------------------------------------------------------------

@@ -63,4 +63,4 @@ def delete(request, id):
     produit = models.produit.objects.get(pk=id)
     produit_id = str(models.produit.objects.get(pk=id).categorie_id)
     produit.delete()
-    return HttpResponseRedirect("/affiche_categorie/" + produit_id + "/")
+    return HttpResponseRedirect("/infos_produit/")

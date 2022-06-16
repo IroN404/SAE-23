@@ -8,12 +8,14 @@ class produit(models.Model):
     marque = models.CharField(max_length=100)
     auteur = models.CharField(max_length=100)
     categorie = models.ForeignKey("categorie", on_delete=models.CASCADE, default=None)
+    prix = models.FloatField(blank=False,null=True)
+    quantite = models.IntegerField(blank=False, null=True)
 
     def __str__(self):
         return self.nom
 
     def dico(self):
-        return {"nom": self.nom, "date_peremption": self.date_peremption, "photo": self.photo, "marque": self.marque, "auteur": self.auteur, "categorie": self.categorie}
+        return {"nom": self.nom, "date_peremption": self.date_peremption, "photo": self.photo, "marque": self.marque, "auteur": self.auteur, "categorie": self.categorie, "prix":self.prix, "quantite": self.quantite}
 
 #CATEGORIE----------------------------------------------------------------
 class categorie(models.Model):
@@ -56,7 +58,7 @@ class client(models.Model):
 # CLIENT----------------------------------------------------------------
 class listecommande(models.Model):
     commande = models.ManyToManyField(commande)
-    quantite = models.CharField(max_length=20)
+    quantite = models.IntegerField(blank=False)
     produit = models.ManyToManyField(produit)
 
     def __str__(self):

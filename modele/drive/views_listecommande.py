@@ -14,6 +14,8 @@ def ajout(request):
 def traitement(request):
     form = listecommandeform(request.POST)
     if form.is_valid():
+        #quantite = form.cleaned_data.get("quantite")
+        #if quantite >
         listecommande = form.save(commit=False)
         listecommande.save
         return HttpResponseRedirect("/infos_listecommande")
