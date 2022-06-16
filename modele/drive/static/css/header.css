@@ -168,11 +168,8 @@ form{
       }
       .navbar {
         height: 50px;
-        padding: 0;
-        margin: 0;
-        /*position: absolute;*/
-        margin-left:60vh;
-
+        position: absolute;
+        margin-left:55vh;
       }
       .navbar li {
         height: auto;
@@ -212,12 +209,7 @@ form{
         margin: 0;
         z-index: 99;
       }
-      .navbar {
-        height: 50px;
-        padding: 0;
-        margin: 0;
-        position: absolute;
-      }
+
       .navbar li {
         height: auto;
         width: 135.8px;
