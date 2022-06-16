@@ -11,18 +11,37 @@
 <body>
     <header>
         <a class="logo" href="/"><img src="{%static 'image/logo.svg' %}" alt="logo"></a>
-            <nav>
-                <ul class="nav_links">
-                    <li><a href="/ajout_produit_only/">Ajouter Produits</a></li>
-                    <li><a href="/ajout_categorie/">Ajouter Catégorie</a></li>
-                    <li><a href="/infos_categorie/">Infos Catégorie</a></li>
-                    <li><a href="/ajout_commande_only/">Enregistrer une commande</a></li>
-                    <li><a href="/infos_commande">Regsitre Commandes</a></li>
-                    <li><a href="/ajout_listecommande">Passer Commandes</a></li>
-                </ul>
-            </nav>
-            <a class="cta" href="/infos_client">Infos Client</a>
-            <p class="menu cta">Menu</p>
+           <div id="wrap">
+  <ul class="navbar">
+    <li>
+      <a href="#">Catégories</a>
+      <ul>
+        <li><a href="infos_categorie">Voir Catégroies</a></li>
+        <li><a href="ajout_categorie">Ajouter une catégories</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Client</a>
+      <ul>
+        <li><a href="infos_client">Voir Clients</a></li>
+        <li><a href="ajout_client">Ajouter des Clients</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Produits</a>
+      <ul>
+        <li><a href="infos_produit">Voir Produits</a></li>
+        <li><a href="ajout_produit">Ajouter des Produits</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Commandes</a>
+      <ul>
+        <li><a href="ajout_commande">Faire une commande</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
     </header>
         <div id="mobile_menu" class="overlay">
             <a class="close">&times;</a>
