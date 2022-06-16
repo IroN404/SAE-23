@@ -31,7 +31,7 @@ def traitement_only(request):
     form = commandeonlyform(request.POST)
     if form.is_valid():
         commande = form.save()
-        return render(request, "drive/commande/affiche.html", {"commande" : commande})
+        return HttpResponseRedirect("/ajout_listecommande/")
     else :
         return render(request, "drive/commande/affiche.html", {"form" : form})
 
