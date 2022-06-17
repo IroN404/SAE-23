@@ -7,11 +7,13 @@
         <h1>Liste des Clients</h1>
         <a href="/ajout_client">Ajouter un Client</a>
     <table>
-        <tr>
-            {% for l in liste %}
-                <td>{{l}} <a href="/affiche_client/{{l.id}}">Afficher</a> | <a href="/update_client/{{l.id}}">Mise à jour</a> | <a href="/delete_client/{{l.id}}">Supprimer</a> </td>
-            {% endfor %}
-        </tr>
+        {% for l in liste %}
+        <tr class="tableau"><td>{{l}}</td>
+        <td><a href="/delete_client/{{l.id}}">Supprimer</a></td>
+        <td><a href="/update_client/{{l.id}}">Update</a></td>
+        <td><a href="/affiche_client/{{l.id}}">Affiche</a></td>
+        {%endfor%}
+    </tr>
     </table>
 </div>
 {% endblock %}

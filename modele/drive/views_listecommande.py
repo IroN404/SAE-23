@@ -27,7 +27,6 @@ def traitement(request):
         models.produit.objects.filter(pk=produit_commande).update(quantite=new_quantite)
         listecommande = form.save(commit=False)
         listecommande.save()
-        quantite1 = new_quantite
         return render(request, "drive/listecommande/affiche.html", {"listecommande" : listecommande})
     else:
         return render(request,"drive/listecommande/ajout.html",{"alert" : "Veuillez rentré des données cohérentes", "form":form})
@@ -46,7 +45,7 @@ def affiche(request, id):
 
 def update(request, id):
     listecommande = models.listecommande.objects.get(pk=id)
-    form = listecommandeform(listecommande.dictionnaire())
+    form = listecommandeform(listecommande.dico())
     quantitecommande = int(listecommande.produit.quantite) + int(form["quantite"].value())
     models.produit.objects.filter(pk=listecommande.produit.id).update(quantite=quantitecommande) #remet la valeurs initial du stock
     return render(request,'drive/listecommande/ajout.html',{"form": form, "id":id})
@@ -55,11 +54,11 @@ def update(request, id):
 def updatetraitement(request, id):
     form = listecommandeform(request.POST)
     produit_commande = request.POST["produit"]
-    stock_produit = models.produit.objects.get(pk=produit_commande)
+    produitstock = models.produit.objects.get(pk=produit_commande)
     quantite_commande = request.POST["quantite"]
-    if form.is_valid() and int(stock_produit.produit) >= int(quantite_commande):
-        new_stock = int(stock_produit.produit)-int(quantite_commande)
-        models.produit.objects.filter(pk=produit_commande).update(produit=new_stock)
+    if form.is_valid() and int(produitstock.produit) >= int(quantite_commande):
+        new_stock = int(produitstock.produit)-int(quantite_commande)
+        models.produit.objects.filter(pk=produit_commande).update(quantite=new_stock)
         listecommande = form.save(commit=False)
         listecommande.id = id
         listecommande.save()
@@ -71,7 +70,7 @@ def updatetraitement(request, id):
 def delete(request, id):
     listecommande = models.listecommande.objects.get(pk=id)
     listecommande.delete()
-    form = listecommandeform(listecommande.dictionnaire())
-    stock_produit_commande = int(listecommande.produit.produit) + int(form["quantite"].value())
-    models.produit.objects.filter(pk=listecommande.produit.id).update(produit=stock_produit_commande)
+    form = listecommandeform(listecommande.dico())
+    stock_produit_commande = int(listecommande.produit.quantite) + int(form["quantite"].value())
+    models.produit.objects.filter(pk=listecommande.produit.id).update(quantite=stock_produit_commande)
     return HttpResponseRedirect("/infos_listecommande/")

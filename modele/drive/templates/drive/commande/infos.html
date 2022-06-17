@@ -6,10 +6,12 @@
 <div class="content">
         <h1>Commandes</h1>
     <table>
-        <tr>
-            {% for l in liste %}
-                <td>{{l}}  <a href="/affiche_commande/{{l.id}}">afficher</a> | <a href="/update_commande/{{l.id}}">update</a> | <a href="/delete_commande/{{l.id}}">delete</a></td>
-            {% endfor %}
+        {% for l in liste %}
+        <tr class="tableau"><td>{{l}}</td>
+        <td><a href="/delete_commande/{{l.id}}">Supprimer</a></td>
+        <td><a href="/update_commande/{{l.id}}">Update</a></td>
+        <td><a href="/affiche_commande/{{l.id}}">Affiche</a></td>
+        {%endfor%}
         </tr>
     </table>
 </div>

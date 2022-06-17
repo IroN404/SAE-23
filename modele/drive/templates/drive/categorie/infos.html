@@ -7,11 +7,13 @@
         <h1>Liste des Catégories</h1>
         <a href="/ajout_categorie">Ajouter une catégorie</a>
     <table>
-        <tr>
-            {% for l in liste %}
-                <td>{{l}} <a href="/affiche_categorie/{{l.id}}">Afficher</a> | <a href="/update_categorie/{{l.id}}">Mise à jour</a> | <a href="/delete_categorie/{{l.id}}">Supprimer</a> </td>
-            {% endfor %}
-        </tr>
+        {% for l in liste %}
+        <tr class="tableau"><td>{{l}}</td>
+        <td><a href="/delete_categorie/{{l.id}}">Supprimer</a></td>
+        <td><a href="/update_categorie/{{l.id}}">Update</a></td>
+        <td><a href="/affiche_categiorie/{{l.id}}">Affiche</a></td>
+        {%endfor%}
+    </tr>
     </table>
 </div>
 {% endblock %}

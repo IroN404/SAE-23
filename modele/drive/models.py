@@ -62,7 +62,8 @@ class listecommande(models.Model):
     produit = models.ForeignKey("produit", on_delete=models.CASCADE, default=None)
 
     def __str__(self):
-        return self.commande
+        chaine = f"{self.commande} | {self.produit}"
+        return chaine
 
     def dico(self):
         return{"commande": self.commande, "quantite": self.quantite, "produit" : self.produit}
