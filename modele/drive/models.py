@@ -15,7 +15,7 @@ class produit(models.Model):
         return self.nom
 
     def dico(self):
-        return {"nom": self.nom, "date_peremption": self.date_peremption, "photo": self.photo, "marque": self.marque, "auteur": self.auteur, "categorie": self.categorie, "prix":self.prix, "quantite": self.quantite}
+        return {"nom": self.nom, "date_peremption": self.date_peremption, "photo": self.photo, "marque": self.marque, "auteur": self.auteur, "categorie": self.categorie, "prix" : self.prix, "quantite": self.quantite}
 
 #CATEGORIE----------------------------------------------------------------
 class categorie(models.Model):
@@ -57,9 +57,9 @@ class client(models.Model):
 
 # CLIENT----------------------------------------------------------------
 class listecommande(models.Model):
-    commande = models.ManyToManyField(commande)
+    commande = models.ForeignKey("commande", on_delete=models.CASCADE, default=None)
     quantite = models.IntegerField(blank=False)
-    produit = models.ManyToManyField(produit)
+    produit = models.ForeignKey("produit", on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.commande
