@@ -16,7 +16,7 @@ def ajout_only(request):
 
 def traitement(request, id):
     categorie = models.categorie.objects.get(pk=id)
-    form = produitform(request.POST)
+    form = produitform(request.POST,request.FILES)
     if form.is_valid():
         produit = form.save(commit=False)
         produit.categorie = categorie
