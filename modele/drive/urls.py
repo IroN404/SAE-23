@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views, views_produit, views_categorie, views_client, views_comande, views_listecommande
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', views.home, name='home'),

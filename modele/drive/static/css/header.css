@@ -246,3 +246,21 @@ form{
 navbar{
     background:#000000;
 }
+
+table{
+  border-collapse: collapse
+}
+
+td{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+    color: blue;
+}
+
+table > tr {
+    text-space: 20px;
+}

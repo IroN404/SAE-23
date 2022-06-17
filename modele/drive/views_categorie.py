@@ -1,8 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .forms import categorieform
 from . import models
-from fpdf import FPDF
-from django.http import FileResponse
 # Create your views here.
 
 def ajout(request):

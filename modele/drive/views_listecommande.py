@@ -1,8 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
 from .forms import listecommandeform
 from . import models
-from fpdf import FPDF
-from django.http import FileResponse
 # Create your views here.
 
 
@@ -29,6 +27,7 @@ def traitement(request):
         models.produit.objects.filter(pk=produit_commande).update(quantite=new_quantite)
         listecommande = form.save(commit=False)
         listecommande.save()
+        quantite1 = new_quantite
         return render(request, "drive/listecommande/affiche.html", {"listecommande" : listecommande})
     else:
         return render(request,"drive/listecommande/ajout.html",{"alert" : "Veuillez rentré des données cohérentes", "form":form})

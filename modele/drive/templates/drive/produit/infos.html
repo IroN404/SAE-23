@@ -4,11 +4,13 @@
 {% endblock %}
 {% block content %}
 <div class="content">
-        <h1>Liste des produits</h1>
-        <ol>
+    <h1>Liste des produits</h1>
+    <table>
+        <tr>
             {% for l in liste %}
-                <li>{{l}}  <a href="/affiche_produit/{{l.id}}">afficher</a> | <a href="/update_produit/{{l.id}}">update</a> | <a href="/delete_produit/{{l.id}}">delete</a></li>
+                <td>{{l}}  <a href="/affiche_produit/{{l.id}}">afficher</a> | <a href="/update_produit/{{l.id}}">update</a> | <a href="/delete_produit/{{l.id}}">delete</a></td>
             {% endfor %}
-        </ol>
+        </tr>
+    </table>
 </div>
 {% endblock %}

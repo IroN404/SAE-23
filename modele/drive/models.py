@@ -4,7 +4,7 @@ from django.db import models
 class produit(models.Model):
     nom = models.CharField(max_length=100)
     date_peremption = models.DateField(blank=True, null=True)
-    photo = models.ImageField(upload_to ='images',blank=True)
+    photo = models.ImageField(upload_to ='media/')
     marque = models.CharField(max_length=100)
     auteur = models.CharField(max_length=100)
     categorie = models.ForeignKey("categorie", on_delete=models.CASCADE, default=None)
