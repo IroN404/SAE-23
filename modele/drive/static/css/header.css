@@ -258,3 +258,8 @@ a {
 table > tr {
     text-space: 20px;
 }
+
+.imageproduit {
+    width:30%;
+    height: 30%;
+}

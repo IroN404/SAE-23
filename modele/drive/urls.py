@@ -50,3 +50,7 @@ urlpatterns = [
     path('updatetraitement_listecommande/<int:id>/', views_listecommande.updatetraitement, name=('updatetraitement_listecommande')),
     path('delete_listecommande/<int:id>/', views_listecommande.delete, name=('delete_listecommande')),
 ]
+
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)

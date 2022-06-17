@@ -27,7 +27,7 @@ def traitement(request, id):
         return render(request, "drive/produit/ajout.html", {"form": form})
 
 def traitement_only(request):
-    form = produitonlyform(request.POST)
+    form = produitonlyform(request.POST,request.FILES)
     if form.is_valid():
         produit = form.save()
         return render(request, "drive/produit/affiche.html", {"produit" : produit})
@@ -48,7 +48,7 @@ def update(request, id):
     return render(request, "drive/produit/update.html",{"form":form, "id":id})
 
 def updatetraitement(request, id):
-    pform = produitform(request.POST)
+    pform = produitform(request.POST, request.FILES)
     if pform.is_valid():
         categorie = pform.save(commit=False)
         categorie.id = id
