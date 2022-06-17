@@ -1,7 +1,8 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
 from .forms import commandeform, commandeonlyform
 from . import models
-
+from fpdf import FPDF
+from django.http import FileResponse
 # Create your views here.
 
 def home(request):
